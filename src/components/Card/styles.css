@@ -24,12 +24,13 @@
     justify-content: space-between;
     align-items: center;
 
-    margin: 8px 14px;
+    padding: 8px 14px;
+    width: 100%;
 }
 
 .card .content__title-value h1 {
     font-size: 16px;
-    font-weight: 400;    
+    font-weight: 400;   
 }
 
 .card .content__title-value span {
@@ -41,6 +42,7 @@
     border-radius: 5px;
 
     padding: 4px 6px;
+    margin-left: 4px;
 }
 
 .card p {
