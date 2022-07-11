@@ -1,7 +1,10 @@
 import { Card } from '../Card';
+import { connect } from 'react-redux';
+
 import './styles.css';
 
-export function Main() {
+const Main = (products) => {
+    console.log(products)
     return (
         <div className="content__main">
             <div className="content__card">
@@ -17,3 +20,5 @@ export function Main() {
         </div>
     )
 }
+
+export default connect(state => ({ products: state}))(Main)
