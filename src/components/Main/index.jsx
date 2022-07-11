@@ -3,11 +3,15 @@ import { connect } from 'react-redux';
 
 import './styles.css';
 
-const Main = (products) => {
-    console.log(products)
+const Main = (module) => {
+
+    console.log(module)    
+
+    // module().then(e => {console.log(e)})
     return (
         <div className="content__main">
             <div className="content__card">
+                <button onClick={() => console.log(module)} >teste</button>
                 <Card />
                 <Card />
                 <Card />
@@ -21,4 +25,4 @@ const Main = (products) => {
     )
 }
 
-export default connect(state => ({ products: state}))(Main)
+export default connect(state => ({ module: state}))(Main)
