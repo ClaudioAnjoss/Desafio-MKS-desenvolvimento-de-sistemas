@@ -5,8 +5,9 @@ import { CardAside } from '../CardAside'
 import './styles.css';
 
 export function Aside(props) {
-    const [isActive, setActive] = useState(false);
+    const { products, setProducts } = useContext(MyContext);
     const { productsCart, setProductsCart } = useContext(MyContext);
+    const { isActive, setActive } = useContext(MyContext);    
 
     function AddProducToCart(id) {  
         const copyProductsCart = [...productsCart];    
@@ -16,6 +17,7 @@ export function Aside(props) {
             copyProductsCart.push({id: id, qtd: 1})
         } else {
             item.qtd = item.qtd + 1
+            item.valueItems = item.qtd * item.price
         }    
         setProductsCart(copyProductsCart)    
     }
@@ -26,6 +28,7 @@ export function Aside(props) {
     
         if(item.qtd > 1) {
             item.qtd = item.qtd - 1;
+            item.valueItems -= item.price
             setProductsCart(copyProductsCart)
         } else {
             const arrayFiltered = copyProductsCart.filter(product => product.id != id.target.id);
@@ -40,24 +43,30 @@ export function Aside(props) {
     };
 
     useEffect(() => {
-        setActive(!isActive)
-        setProductsCart([{id:2, qtd: 3, name: 'Apple Watch', price: 200}])
-    }, [props.data])
+        
+
+
+
+        // setProductsCart([{id:2, qtd: 3, name: 'Apple Watch', price: 200}])
+    }, [])
 
     return (
-        <div className={isActive ? 'content__aside' : 'content__aside active'}>
+        <div className={isActive ? 'content__aside active' : 'content__aside'}>
             <div className="content__title-toggle">
                 <h1>Carrinho de compras</h1>
                 <button onClick={handleToggle}>X</button>
             </div>
 
+            {console.log(productsCart)}
+
             {productsCart ? productsCart.map(e => {
                 return <CardAside 
                 key={e.id} 
                 id={e.id}
-                qtd={e.qtd}
+                photo={e.photo}
                 name={e.name}
-                price={e.price}
+                qtd={e.qtd}
+                price={e.valueItems}
                 value={{ AddProducToCart, RemoveProducToCart}}
                  />
             }) : console.log('esta vazio')}

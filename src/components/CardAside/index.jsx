@@ -7,7 +7,7 @@ export function CardAside(props) {
     return(
         <div className="content__card--aside">
             <div className="card__title-img">
-                <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKU93_VW_34FR+watch-40-alum-gold-nc-se_VW_34FR_WF_CO_GEO_BR?wid=1400&hei=1400&trim=1,0&fmt=p-jpg&qlt=95&.v=1632171039000,1630712364000" alt="DESCRICAO" />
+                <img src={props.photo} alt={props.name} />
                 <span>{props.name}</span>
             </div>
             <div className="card__increment-value">

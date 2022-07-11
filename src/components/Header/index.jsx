@@ -1,18 +1,17 @@
-import { useState, useContext } from 'react';
-import { Aside } from '../Aside';
+import { useContext } from 'react';
 import Cart from '../../assets/Cart.png';
+import MyContext from '../../contexts/myContent';
 
 import './styles.css'
 
-export function Header() {
-    
+export function Header() {  
+    const { isActive, setActive } = useContext(MyContext);
+    const { productsCart, setProductsCart } = useContext(MyContext);
 
-    
+    console.log(productsCart)
 
-    const [menuToggled, setMenuToggled] = useState(false);
-
-    const ToggleMenu = () => {
-        menuToggled ? setMenuToggled(false) : setMenuToggled(true);
+    const handleToggle = () => {
+        isActive ? setActive(false) : setActive(true);
     }
 
     return (
@@ -21,12 +20,10 @@ export function Header() {
                 <span className='title'>MKS</span>
                 <span className='subTitle'>Sistemas</span>
             </div>
-            <button className="menu__cart" onClick={ToggleMenu}>
+            <button className="menu__cart" onClick={handleToggle}>
                 <img src={Cart} alt="Carrinho" />
                 <span>$99</span>
             </button>
-
-            <Aside data={menuToggled} />
         </div>
     )
 }

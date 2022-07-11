@@ -115,6 +115,9 @@
 
     color: #000;
     margin-left: 40px;
+    /* text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; */
 }
 
 @media (max-width: 500px) {
