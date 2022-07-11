@@ -1,11 +1,39 @@
-import { useState } from 'react';
-import './styles.css';
-
+import { useState, useEffect, createContext, useContext } from 'react';
+import MyContext from '../../contexts/myContent';
 import { CardAside } from '../CardAside'
-import { useEffect } from 'react';
+
+import './styles.css';
 
 export function Aside(props) {
     const [isActive, setActive] = useState(false);
+    const { productsCart, setProductsCart } = useContext(MyContext);
+
+    function AddProducToCart(id) {  
+        const copyProductsCart = [...productsCart];    
+        const item = copyProductsCart.find((product) => product.id == id.target.id);
+    
+        if (!item) {
+            copyProductsCart.push({id: id, qtd: 1})
+        } else {
+            item.qtd = item.qtd + 1
+        }    
+        setProductsCart(copyProductsCart)    
+    }
+
+    function RemoveProducToCart(id) { 
+        const copyProductsCart = [...productsCart];    
+        const item = copyProductsCart.find((product) => product.id == id.target.id);
+    
+        if(item.qtd > 1) {
+            item.qtd = item.qtd - 1;
+            setProductsCart(copyProductsCart)
+        } else {
+            const arrayFiltered = copyProductsCart.filter(product => product.id != id.target.id);
+            setProductsCart(arrayFiltered)
+        }
+    }
+
+
 
     const handleToggle = () => {
         setActive(!isActive)
@@ -13,6 +41,7 @@ export function Aside(props) {
 
     useEffect(() => {
         setActive(!isActive)
+        setProductsCart([{id:2, qtd: 3, name: 'Apple Watch', price: 200}])
     }, [props.data])
 
     return (
@@ -22,8 +51,17 @@ export function Aside(props) {
                 <button onClick={handleToggle}>X</button>
             </div>
 
-            <CardAside />
-            <CardAside />
+            {productsCart ? productsCart.map(e => {
+                return <CardAside 
+                key={e.id} 
+                id={e.id}
+                qtd={e.qtd}
+                name={e.name}
+                price={e.price}
+                value={{ AddProducToCart, RemoveProducToCart}}
+                 />
+            }) : console.log('esta vazio')}
+            
 
             <div className="content__total-purchase">
                 <div className="content__total">

@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Aside } from '../Aside';
 import Cart from '../../assets/Cart.png';
 
 import './styles.css'
 
 export function Header() {
+    
+
+    
 
     const [menuToggled, setMenuToggled] = useState(false);
 

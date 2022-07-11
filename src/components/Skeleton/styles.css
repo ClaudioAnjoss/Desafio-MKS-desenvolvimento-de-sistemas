@@ -1,0 +1,41 @@
+@keyframes shimmer {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: -135% 0%;
+    }
+}
+
+.card .skeleton__img {
+    width: 100px;
+    height: 100px;
+
+    background-image: linear-gradient(
+        -90deg,
+        #e7edf1 0%,
+        #f8f8f8 50%,
+        #e7edf1 100%
+    );
+    background-size: 400% 400%;
+    border-radius: 50%;
+    animation: shimmer 1s ease-in-out infinite;
+
+    
+}
+
+.card .skeleton__span {
+    width: 90%;
+    height: 20px;
+
+    background-image: linear-gradient(
+        -90deg,
+        #e7edf1 0%,
+        #f8f8f8 50%,
+        #e7edf1 100%
+    );
+    background-size: 400% 400%;
+    margin: 5px 0;
+    border-radius: 4px;
+    animation: shimmer 1s ease-in-out infinite;
+}
