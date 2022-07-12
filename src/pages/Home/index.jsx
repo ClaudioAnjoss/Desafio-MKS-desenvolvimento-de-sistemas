@@ -1,14 +1,13 @@
-import { useState } from 'react'
+import { CartProvider } from '../../../contexts/CartContext';
 
 import { Layout } from '../../components/Layout'
 import './styles.css';
 
 export function Home() {
-  // const [count, setCount] = useState(0)
 
   return (
-    <div>
+    <CartProvider>
       <Layout />
-    </div>
+    </CartProvider>
   )
 }

@@ -1,11 +1,15 @@
+import { useContext } from 'react';
+import { CartContext } from '../../../contexts/CartContext';
 import './styles.css';
 
-export function CardAside() {
+export function CardAside({ name, photo, price, id}) {
+    const { handleAddItemToCart } = useContext(CartContext)
+
     return(
         <div className="content__card--aside">
             <div className="card__title-img">
-                <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKU93_VW_34FR+watch-40-alum-gold-nc-se_VW_34FR_WF_CO_GEO_BR?wid=1400&hei=1400&trim=1,0&fmt=p-jpg&qlt=95&.v=1632171039000,1630712364000" alt="DESCRICAO" />
-                <span>Apple Watch Series 4 GPS</span>
+                <img src={photo} alt={name} />
+                <span>{name}</span>
             </div>
             <div className="card__increment-value">
                 <div className="card__increment">
@@ -15,7 +19,7 @@ export function CardAside() {
                     </div>
                 </div>
 
-                <span className="card__value">R$399</span>
+                <span className="card__value">R${price}</span>
             </div>
         </div>
     )

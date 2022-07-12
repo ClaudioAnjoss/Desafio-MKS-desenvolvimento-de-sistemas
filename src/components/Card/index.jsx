@@ -1,33 +1,28 @@
 import './styles.css';
 
 import Bag from '../../assets/Bag.png'
-import { useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useContext } from 'react';
+import { CartContext } from '../../../contexts/CartContext';
 
 
-const Card = (props, listProducts) => {
-    
-    function addCart(id) {
-        console.log(id)
-        console.log(listProducts)
-    }
+export const Card = ({ name, price, photo, description, qtd, id }) => {
+    const { handleAddItemToCart } = useContext(CartContext)    
 
     return (
         <div className="card">
-            <img src={props.photo} alt={props.name} />
+            <img src={photo} alt={name} />
 
             <div className="content__title-value">
-                <h1>{props.name}</h1>
-                <span>R${props.price}</span>
+                <h1>{name}</h1>
+                <span>R${price}</span>
             </div>
 
-            <p>{props.description}</p>
+            <p>{description}</p>
 
-            <button onClick={() => addCart(props.id)}>
+            <button onClick={() => handleAddItemToCart(photo, name, price, id, qtd = 1)}>
                 <img src={Bag} alt="Bag" />
                 <span>Comprar</span>
             </button>
         </div>
     )
 }
-export default connect(state => ({ listProducts: state }))(Card)

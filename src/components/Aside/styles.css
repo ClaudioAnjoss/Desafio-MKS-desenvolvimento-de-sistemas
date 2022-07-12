@@ -26,6 +26,10 @@
     align-items: center;
 }
 
+.content__aside .cart__logo {
+    margin: auto;
+}
+
 .content__aside .content__title-toggle h1 {
     max-width: 180px;
 

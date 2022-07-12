@@ -1,49 +1,59 @@
-import Card from '../Card';
-import { connect } from 'react-redux';
-
-import './styles.css';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { CartContext } from '../../../contexts/CartContext';
+import { Card } from '../Card';
+import { Skeleton } from '../Skeleton'
 import { GetProducts } from '../../scripts/GetProdutos';
 
+import './styles.css';
 
-
-const Main = (listProducts) => {
-    const [product, SetProducts] = useState([])
-    const teste = product.map(e => {
-        return e
-    })
-    listProducts = [...teste]
+export const Main = () => {
+    const [product, SetProducts] = useState()
+    const { items } = useContext(CartContext)
+    
 
     useEffect(() => {
-        GetProducts().then(e => {
-            SetProducts([...e.products])
-        })
+        // GetProducts().then(e => {
+        //     SetProducts([...e.products])
+        // })
+
+        SetProducts(items)
+
     }, [])
 
-    if (product.length > 1) {
+    if (product) {
         return (
             <div className="content__main">
                 <div className="content__card">
-                    {listProducts.map(res => {
+                    {product.map((cartItem, index) => {
                         return (
                             <Card
-                                key={res.id}
-                                id={res.id}
-                                name={res.name}
-                                photo={res.photo}
-                                price={res.price}
-                                description={res.description}
+                                key={index}
+                                id={cartItem.id}
+                                name={cartItem.name}
+                                photo={cartItem.photo}
+                                price={cartItem.price}
+                                description={cartItem.description}
                             />
                         )
                     })}
-
                 </div>
             </div>
         )
     } else {
-        console.log('carregando')
+        return (
+            <div className="content__main">
+                <div className="content__card">
+                    <Skeleton />
+                    <Skeleton />
+                    <Skeleton />
+                    <Skeleton />
+                    <Skeleton />
+                    <Skeleton />
+                    <Skeleton />
+                    <Skeleton />
+                </div>
+            </div>
+        )
     }
 
 }
-
-export default connect(state => ({ listProducts: state }))(Main)
