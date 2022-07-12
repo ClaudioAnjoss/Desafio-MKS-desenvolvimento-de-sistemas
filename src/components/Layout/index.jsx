@@ -11,7 +11,7 @@ import './styles.css';
 function Layout(props) {
   //declaração dos states
   const [products, setProducts] = useState(false);
-  const [productsCart, setProductsCart] = useState('');
+  const [productsCart, setProductsCart] = useState([]);
   const [isActive, setActive] = useState(false);
 
   return (

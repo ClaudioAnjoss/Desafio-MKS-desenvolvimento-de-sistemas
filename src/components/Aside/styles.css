@@ -9,9 +9,18 @@
 
     width: 486px;
     min-height: 100vh;
+    max-height: 100vh;
     background-color: var(--primary);
     box-shadow: -5px 0px 6px rgba(0, 0, 0, 0.13);
     transition: right .4s;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    
+}
+
+.content__aside::-webkit-scrollbar {
+    display: none;
 }
 
 .content__aside.active {
@@ -58,6 +67,11 @@
     width: 100%;
 }
 
+.content__aside .cart__logo {
+    width: 40%;
+    margin: auto;
+}
+
 .content__aside .content__total-purchase .content__total {
     display: flex;
     justify-content: space-between;
@@ -83,6 +97,7 @@
     background-color: #000;
     color: #fff;
     margin-top: 42px;
+    cursor: pointer;
 }
 
 @media (max-width: 500px) {

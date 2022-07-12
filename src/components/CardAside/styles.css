@@ -3,8 +3,8 @@
     justify-content: space-between;
     align-items: center;
 
-    width: 380px;
-    height: 95px;
+    min-width: 380px;
+    min-height: 95px;
 
     position: relative;
     background-color: #fff;

@@ -4,7 +4,6 @@ import Bag from '../../assets/Bag.png';
 import './styles.css';
 
 export function Card(props) {
-    // console.log(props)
     return (
         <div className="card">
             <img src={props.photo} alt={props.title} />
@@ -16,7 +15,7 @@ export function Card(props) {
 
             <p>{props.description}</p>
 
-            <button type="button" id={props.id} onClick={props.cart}>
+            <button type="button" onClick={props.cart}>
                 <img src={Bag} alt="Bag" />
                 Comprar
             </button>
