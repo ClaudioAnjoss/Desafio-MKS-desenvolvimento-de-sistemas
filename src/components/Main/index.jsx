@@ -7,17 +7,14 @@ import { GetProducts } from '../../scripts/GetProdutos';
 import './styles.css';
 
 export const Main = () => {
-    const [product, SetProducts] = useState()
-    const { items } = useContext(CartContext)
-    
+    const { product, SetProducts } = useContext(CartContext);
 
     useEffect(() => {
-        // GetProducts().then(e => {
-        //     SetProducts([...e.products])
-        // })
-
-        SetProducts(items)
-
+        setTimeout(() => {
+            GetProducts().then(e => {
+                SetProducts(e.products)
+            })
+        }, 2000)
     }, [])
 
     if (product) {
@@ -25,35 +22,31 @@ export const Main = () => {
             <div className="content__main">
                 <div className="content__card">
                     {product.map((cartItem, index) => {
-                        return (
-                            <Card
-                                key={index}
-                                id={cartItem.id}
-                                name={cartItem.name}
-                                photo={cartItem.photo}
-                                price={cartItem.price}
-                                description={cartItem.description}
-                            />
-                        )
+                        return (<Card
+                            key={index}
+                            id={cartItem.id}
+                            name={cartItem.name}
+                            photo={cartItem.photo}
+                            price={cartItem.price}
+                            description={cartItem.description}
+                            qtd={1}
+                        />)
                     })}
                 </div>
             </div>
         )
     } else {
-        return (
-            <div className="content__main">
-                <div className="content__card">
-                    <Skeleton />
-                    <Skeleton />
-                    <Skeleton />
-                    <Skeleton />
-                    <Skeleton />
-                    <Skeleton />
-                    <Skeleton />
-                    <Skeleton />
-                </div>
+        return (<div className="content__main">
+            <div className="content__card">
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
             </div>
-        )
+        </div>)
     }
-
 }

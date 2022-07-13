@@ -1,12 +1,13 @@
-import { useContext } from 'react';
-import './styles.css';
-
-import { CardAside } from '../CardAside'
 import { CartContext } from '../../../contexts/CartContext';
+import { useContext } from 'react';
+import { CardAside } from '../CardAside';
+
+import './styles.css';
 
 export function Aside() {
     const { menuToggled, setMenuToggled } = useContext(CartContext)
     const { cart, setCart } = useContext(CartContext);
+    const totalPrice = cart ? cart.reduce((acc, current) =>  acc + parseFloat(current.values), 0) : 0
 
     if (cart && cart.length > 0) {
         return (
@@ -16,7 +17,6 @@ export function Aside() {
                     <button onClick={() => setMenuToggled(!menuToggled)}>X</button>
                 </div>
                 {cart.map((CartItem, index) => {
-                    console.log(CartItem)
                     return (
                         <CardAside
                             key={index}
@@ -24,15 +24,16 @@ export function Aside() {
                             name={CartItem.name}
                             price={CartItem.price}
                             photo={CartItem.photo}
+                            qtd={CartItem.qtd}
+                            cartItem={CartItem}
                         />
                     )
                 })}
                 <div className="content__total-purchase">
                     <div className="content__total">
                         <span>Total:</span>
-                        <span>RS798</span>
+                        <span>RS{totalPrice}</span>
                     </div>
-
                     <button>Finalizar Compra</button>
                 </div>
             </div>
@@ -45,14 +46,6 @@ export function Aside() {
                     <button onClick={() => setMenuToggled(!menuToggled)}>X</button>
                 </div>
                 <img className='cart__logo' src="https://cdn-icons-png.flaticon.com/128/4555/4555971.png" alt="cart" />
-                <div className="content__total-purchase">
-                    <div className="content__total">
-                        <span>Total:</span>
-                        <span>RS798</span>
-                    </div>
-
-                    <button>Finalizar Compra</button>
-                </div>
             </div>
         )
     }

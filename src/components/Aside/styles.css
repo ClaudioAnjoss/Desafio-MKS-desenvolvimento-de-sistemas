@@ -8,9 +8,17 @@
 
     width: 486px;
     min-height: 100vh;
+    max-height: 100vh;
     background-color: var(--primary);
     box-shadow: -5px 0px 6px rgba(0, 0, 0, 0.13);
     transition: .4s;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.content__aside::-webkit-scrollbar {
+    display: none;
 }
 
 .content__aside.active {
@@ -81,10 +89,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
     background-color: #000;
     color: #fff;
     margin-top: 42px;
+}
+
+@media (max-width: 1001px) {
+    .content__aside {
+    
+        width: 486px;
+        min-height: 100%;
+    }
 }
 
 @media (max-width: 500px) {

@@ -6,7 +6,6 @@ import { Aside } from '../Aside';
 import './styles.css';
 
 export function Layout() {
-
   return (
     <div className="container">
         <Header />
