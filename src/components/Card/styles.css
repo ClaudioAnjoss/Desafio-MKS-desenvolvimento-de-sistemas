@@ -23,14 +23,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    padding: 0px 14px;
     width: 100%;
+
+    padding: 8px 14px;
 }
 
 .card .content__title-value h1 {
     font-size: 16px;
-    font-weight: 400;   
+    font-weight: 400;    
 }
 
 .card .content__title-value span {
@@ -42,47 +42,33 @@
     border-radius: 5px;
 
     padding: 4px 6px;
-    margin-left: 4px;
 }
 
 .card p {
     font-size: 10px;
     font-weight: 300;
-    width: 192px;
-    height: 25px;
-
-    margin: 12px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+    margin: 0 12px;
 }
 
 .card button {
     width: 100%;
     height: 32px;
-    font-size: 14px;
-    font-weight: 600;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     border: none;
-    cursor: pointer;
     background-color: var(--primary);
-    color: #fff;
-    text-transform: uppercase;
+    cursor: pointer;
 }
 
 .card button span {
-    
+    font-size: 14px;
+    font-weight: 600;
 
-    
-    
+    color: #fff;
+    text-transform: uppercase;
+    margin-left: 14px;
 }
 
 .card button img {
     width: 12px;
     height: 14px;
-    margin-right: 14px;
 }

@@ -1,68 +1,52 @@
-
-import { useContext, useEffect } from 'react';
-import { GetProducts } from '../../scripts/GetProducts';
+import { useContext, useEffect, useState } from 'react';
+import { CartContext } from '../../../contexts/CartContext';
 import { Card } from '../Card';
-import { Skeleton } from '../Skeleton';
+import { Skeleton } from '../Skeleton'
+import { GetProducts } from '../../scripts/GetProdutos';
 
-import MyContext from '../../contexts/myContent';
 import './styles.css';
 
-export function Main() {
-    const { products, setProducts } = useContext(MyContext);
-    const { productsCart, setProductsCart } = useContext(MyContext);
-
-    function SetCart(id) {
-        const copyProducts = [...products['products']]
-        const copyProductsCart = [...productsCart]
-        const item = copyProducts.find((product) => product.id == id);
-        const arrayFiltered = copyProductsCart.filter(product => product.id == id);
-
-        if (arrayFiltered.length == 0) {
-            item['qtd'] = 1
-            item['valueItems'] = parseFloat(item.price)
-            item['valueTotal'] = 0
-            setProductsCart([...productsCart, item])
-        }
-    }
+export const Main = () => {
+    const { product, SetProducts } = useContext(CartContext);
 
     useEffect(() => {
-        GetProducts().then((data) => {
-            setProducts(data)
-        })
+        setTimeout(() => {
+            GetProducts().then(e => {
+                SetProducts(e.products)
+            })
+        }, 2000)
     }, [])
 
-    if (products) {
+    if (product) {
         return (
             <div className="content__main">
                 <div className="content__card">
-                    {(products['products'].map(data => {
+                    {product.map((cartItem, index) => {
                         return (<Card
-                            key={data.id}
-                            id={data.id}
-                            title={data.name}
-                            description={data.description}
-                            price={data.price}
-                            photo={data.photo}
-                            cart={() => SetCart(data.id)}
+                            key={index}
+                            id={cartItem.id}
+                            name={cartItem.name}
+                            photo={cartItem.photo}
+                            price={cartItem.price}
+                            description={cartItem.description}
+                            qtd={1}
                         />)
-                    }))}
+                    })}
                 </div>
             </div>
         )
     } else {
-        return (
-            <div className="content__main">
-                <div className="content__card">
-                    <Skeleton />
-                    <Skeleton />
-                    <Skeleton />
-                    <Skeleton />
-                    <Skeleton />
-                    <Skeleton />
-                    <Skeleton />
-                    <Skeleton />
-                </div>
+        return (<div className="content__main">
+            <div className="content__card">
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
             </div>
-        )
+        </div>)
     }
 }

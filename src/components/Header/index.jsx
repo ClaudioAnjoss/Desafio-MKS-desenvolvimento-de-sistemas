@@ -1,35 +1,24 @@
-import { useContext, useState } from 'react';
+import { useState, useContext } from 'react';
+import { CartContext } from '../../../contexts/CartContext';
+import { Aside } from '../Aside';
 import Cart from '../../assets/Cart.png';
-import MyContext from '../../contexts/myContent';
 
 import './styles.css'
 
-export function Header() {  
-    const { isActive, setActive } = useContext(MyContext);
-    const { productsCart, setProductsCart } = useContext(MyContext);
-    const [value, setValue] = useState(0)
-
-    function valueTotal() {
-        productsCart.map(e => {
-            // let value = e.qtd * e.valueItems
-                console.log(e.qtd)
-            return
-        })
-    }
-
-    valueTotal()
-
-    // console.log(productsCart)
-
+export function Header() {
+    const { menuToggled, setMenuToggled } = useContext(CartContext)
+    const { cart, setCart } = useContext(CartContext);
+    const totalPrice = cart ? cart.reduce((acc, current) =>  acc + parseFloat(current.values), 0) : 0
+    
     return (
         <div className='content__menu'>
             <div className="menu__logo">
                 <span className='title'>MKS</span>
                 <span className='subTitle'>Sistemas</span>
             </div>
-            <button className="menu__cart" onClick={() => setActive(!isActive)}>
+            <button onClick={() => setMenuToggled(!menuToggled)} className="menu__cart">
                 <img src={Cart} alt="Carrinho" />
-                <span>${value}</span>
+                <span>${totalPrice}</span>
             </button>
         </div>
     )

@@ -1,23 +1,27 @@
-import { createContext, useState } from 'react';
 
-import Bag from '../../assets/Bag.png';
+import { useContext } from 'react';
+import { CartContext } from '../../../contexts/CartContext';
+import Bag from '../../assets/Bag.png'
+
 import './styles.css';
 
-export function Card(props) {
+export const Card = ({ name, price, photo, description, qtd, id }) => {
+    const { handleAddItemToCart } = useContext(CartContext)   
+
     return (
         <div className="card">
-            <img src={props.photo} alt={props.title} />
+            <img src={photo} alt={name} />
 
             <div className="content__title-value">
-                <h1>{props.title}</h1>
-                <span>R${props.price}</span>
+                <h1>{name}</h1>
+                <span>R${price}</span>
             </div>
 
-            <p>{props.description}</p>
+            <p>{description}</p>
 
-            <button type="button" onClick={props.cart}>
+            <button onClick={() => handleAddItemToCart(photo, name, price, id, qtd)}>
                 <img src={Bag} alt="Bag" />
-                Comprar
+                <span>Comprar</span>
             </button>
         </div>
     )
