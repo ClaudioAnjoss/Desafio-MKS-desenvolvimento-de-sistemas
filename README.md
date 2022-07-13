@@ -25,7 +25,7 @@ Use do Jest e a testing-library para realizar os testes unitários.
  ##
  
  <strong>Demonstração</strong> 
- <p>Aperte <strong>PLAY</strong> para visualizar o gif de demonstração do site ou acesse https://venerable-alpaca-4de2b0.netlify.app/.
+ <p>Aperte <strong>PLAY</strong> para visualizar o gif de demonstração do site ou acesse https://effortless-kataifi-7c4825.netlify.app/
 
 <p align="center">
    <img alt="GitHub" src="https://media2.giphy.com/media/BfctxqC3d5MpRq7vJ4/giphy.gif?cid=790b76115f65ab49f2271dd97340dd277f21784b609077c6&rid=giphy.gif&ct=g">
