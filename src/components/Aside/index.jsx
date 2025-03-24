@@ -1,54 +1,62 @@
-import { CartContext } from '../../../contexts/CartContext';
-import { useContext } from 'react';
-import { CardAside } from '../CardAside';
+import { CartContext } from '../../../contexts/CartContext'
+import { useContext } from 'react'
+import { CardAside } from '../CardAside'
 
-import './styles.css';
+import { Button } from '../ui/button'
 
 export function Aside() {
-    const { menuToggled, setMenuToggled } = useContext(CartContext)
-    const { cart, setCart } = useContext(CartContext);
-    const totalPrice = cart ? cart.reduce((acc, current) =>  acc + parseFloat(current.values), 0) : 0
+  const { cart, setCart } = useContext(CartContext)
+  const totalPrice = cart
+    ? cart.reduce((acc, current) => acc + parseFloat(current.values), 0)
+    : 0
 
-    if (cart && cart.length > 0) {
-        return (
-            <div className={menuToggled ? 'content__aside active' : 'content__aside'}>
-                <div className="content__title-toggle">
-                    <h1>Carrinho de compras</h1>
-                    <button onClick={() => setMenuToggled(!menuToggled)}>X</button>
-                </div>
-                {cart.map((CartItem, index) => {
-                    return (
-                        <CardAside
-                            key={index}
-                            id={CartItem.id}
-                            name={CartItem.name}
-                            price={CartItem.price}
-                            photo={CartItem.photo}
-                            qtd={CartItem.qtd}
-                            cartItem={CartItem}
-                        />
-                    )
-                })}
-                <div className="content__total-purchase">
-                    <div className="content__total">
-                        <span>Total:</span>
-                        <span>RS{totalPrice}</span>
-                    </div>
-                    <button>Finalizar Compra</button>
-                </div>
-            </div>
-        )
-    } else {
-        return (
-            <div className={menuToggled ? 'content__aside active' : 'content__aside'}>
-                <div className="content__title-toggle">
-                    <h1>Carrinho de compras</h1>
-                    <button onClick={() => setMenuToggled(!menuToggled)}>X</button>
-                </div>
-                <img className='cart__logo' src="https://cdn-icons-png.flaticon.com/128/4555/4555971.png" alt="cart" />
-            </div>
-        )
-    }
+  console.log(cart)
 
+  return (
+    <>
+      <div className="h-[90vh] flex flex-col justify-between p-2">
+        {cart.length > 0 && (
+          <div
+            className=" overflow-y-auto overflow-x-hidden flex flex-col gap-2 py-2"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {cart.map((CartItem, index) => (
+              <CardAside
+                key={index}
+                id={CartItem.id}
+                name={CartItem.name}
+                price={CartItem.price}
+                photo={CartItem.photo}
+                qtd={CartItem.qtd}
+                cartItem={CartItem}
+              />
+            ))}
+            <Button onClick={() => setCart([])}>Limpar carrinho</Button>
+          </div>
+        )}
 
+        {!cart.length && (
+          <div className="flex flex-col items-center justify-center h-full gap-2">
+            <span className="font-light text-2xl">Carrinho Vazio</span>
+            <img
+              className=""
+              src="https://cdn-icons-png.flaticon.com/128/4555/4555971.png"
+              alt="cart"
+            />
+          </div>
+        )}
+
+        <div className="flex justify-between">
+          <span className="text-lg">
+            Total: R$ {parseFloat(totalPrice).toFixed(2)}
+          </span>
+          {cart.length > 0 && (
+            <Button className="cursor-pointer hover:bg-green-400">
+              Finalizar Compra
+            </Button>
+          )}
+        </div>
+      </div>
+    </>
+  )
 }
