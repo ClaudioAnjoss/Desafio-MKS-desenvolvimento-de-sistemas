@@ -9,7 +9,9 @@ export const Main = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      SetProducts(products)
+      if (SetProducts) {
+        SetProducts(products)
+      }
     }, 2000)
   }, [])
 
@@ -19,7 +21,7 @@ export const Main = () => {
         ? product.map((cartItem, index) => {
             return (
               <Card
-                key={index}
+                key={cartItem.id}
                 id={cartItem.id}
                 name={cartItem.name}
                 photo={cartItem.photo}
@@ -29,7 +31,7 @@ export const Main = () => {
               />
             )
           })
-        : Array.from({ length: 8 }, (index) => <SkeletonCard key={index} />)}
+        : Array.from({ length: 8 }, (_, index) => <SkeletonCard key={index} />)}
     </main>
   )
 }
