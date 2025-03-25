@@ -3,14 +3,13 @@ import { useContext } from 'react'
 import { CardAside } from '../CardAside'
 
 import { Button } from '../ui/button'
+import { toast } from 'sonner'
 
 export function Aside() {
   const { cart, setCart } = useContext(CartContext)
   const totalPrice = cart
     ? cart.reduce((acc, current) => acc + parseFloat(current.values), 0)
     : 0
-
-  console.log(cart)
 
   return (
     <>
@@ -31,7 +30,6 @@ export function Aside() {
                 cartItem={CartItem}
               />
             ))}
-            <Button onClick={() => setCart([])}>Limpar carrinho</Button>
           </div>
         )}
 
@@ -46,15 +44,37 @@ export function Aside() {
           </div>
         )}
 
-        <div className="flex justify-between">
-          <span className="text-lg">
-            Total: R$ {parseFloat(totalPrice).toFixed(2)}
-          </span>
+        <div>
           {cart.length > 0 && (
-            <Button className="cursor-pointer hover:bg-green-400">
-              Finalizar Compra
+            <Button
+              className="w-full my-2 cursor-pointer"
+              onClick={() => {
+                setCart([])
+                localStorage.clear()
+
+                toast('Carrinho limpo!', {
+                  description:
+                    'Todos os itens foram removidos do seu carrinho.',
+                  action: {
+                    label: 'Fechar',
+                  },
+                  position: 'bottom-left',
+                })
+              }}
+            >
+              Limpar carrinho
             </Button>
           )}
+          <div className="flex justify-between">
+            <span className="text-lg">
+              Total: R$ {parseFloat(totalPrice).toFixed(2)}
+            </span>
+            {cart.length > 0 && (
+              <Button className="cursor-pointer bg-green-400 hover:bg-green-800">
+                Finalizar Compra
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </>
