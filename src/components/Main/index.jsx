@@ -5,29 +5,29 @@ import products from '../../database/products.json'
 import SkeletonCard from '../SkeletonCard'
 
 export const Main = () => {
-  const { product, SetProducts } = useContext(CartContext)
+  const { produto, setProdutos } = useContext(CartContext)
 
   useEffect(() => {
     setTimeout(() => {
-      if (SetProducts) {
-        SetProducts(products)
+      if (setProdutos) {
+        setProdutos(products)
       }
     }, 2000)
   }, [])
 
   return (
     <main className="container flex flex-wrap gap-3 mx-auto py-3 justify-center min-h-[90vh]">
-      {product
-        ? product.map((cartItem, index) => {
+      {produto
+        ? produto.map((cartItem, index) => {
             return (
               <Card
                 key={cartItem.id}
                 id={cartItem.id}
-                name={cartItem.name}
-                photo={cartItem.photo}
-                price={cartItem.price}
-                description={cartItem.description}
-                qtd={1}
+                nome={cartItem.nome}
+                foto={cartItem.foto}
+                preco={cartItem.preco}
+                descricao={cartItem.descricao}
+                quantidade={1}
               />
             )
           })

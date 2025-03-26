@@ -12,13 +12,10 @@ import {
 } from '../ui/sheet'
 
 export function Header() {
-  const { cart } = useContext(CartContext)
-  const totalPrice = cart
-    ? cart.reduce((acc, current) => acc + parseFloat(current.values), 0)
-    : 0
+  const { precoTotal } = useContext(CartContext)
 
   return (
-    <section className="bg-primary max-h-[80px]">
+    <section className="bg-primary max-h-[80px] sticky top-0 shadow">
       <div className="container flex justify-between mx-auto text-white py-2">
         <div className="">
           <span className="text-[40px] font-medium">MKS</span>
@@ -29,8 +26,8 @@ export function Header() {
           <SheetTrigger>
             <button className="bg-secondary flex items-center p-3 font-semibold cursor-pointer rounded-sm text-primary gap-1">
               <ShoppingCart />
-              {totalPrice > 0 ? (
-                <span>${parseFloat(totalPrice).toFixed(2)}</span>
+              {precoTotal > 0 ? (
+                <span>${parseFloat(precoTotal).toFixed(2)}</span>
               ) : (
                 ''
               )}
