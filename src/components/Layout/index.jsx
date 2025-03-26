@@ -1,36 +1,37 @@
 import { Header } from '../Header'
 import { Main } from '../Main'
 import { Footer } from '../Footer'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../../../contexts/CartContext'
 
 export function Layout() {
-  const { cart, setCart } = useContext(CartContext)
+  const { carrinho, setCarrinho } = useContext(CartContext)
+  const [loading, setLoading] = useState(true)
 
-  // Logica de armazenar carrinho no localStorage
-
+  // Carrega os dados do carrinho do localStorage
   useEffect(() => {
-    const storeCart = localStorage.getItem('cart')
+    const storeCart = localStorage.getItem('carrinho')
 
     if (storeCart) {
-      setCart(JSON.parse(storeCart))
+      setCarrinho(JSON.parse(storeCart))
     }
-  }, [setCart])
+    setLoading(false)
+  }, [setCarrinho])
 
   useEffect(() => {
-    if (cart.length > 0) {
-      localStorage.setItem('cart', JSON.stringify(cart))
+    if (!loading && carrinho.length > 0) {
+      localStorage.setItem('carrinho', JSON.stringify(carrinho))
     }
-  }, [cart])
+  }, [carrinho, loading])
 
   useEffect(() => {
-    if (cart.length === 0) {
-      localStorage.clear()
+    if (!loading && carrinho.length === 0) {
+      localStorage.removeItem('carrinho')
     }
-  }, [cart])
+  }, [carrinho, loading])
 
   return (
-    <div className="">
+    <div className="relative min-h-screen">
       <Header />
       <Main />
       <Footer />

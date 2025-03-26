@@ -1,83 +1,82 @@
 [
-    {
-      "name": "Smartphone XYZ",
-      "price": 799.99,
-      "photo": "https://images.jdmagicbox.com/quickquotes/images_main/samosm-a166pzdhins-272981100-9e3posdr.png",
-      "description": "Smartphone de última geração com câmera de 64MP, tela de 6.5\" e processador octa-core.",
-      "qtd": 30,
-      "id": "1"
-    },
-    {
-      "name": "Laptop ABC",
-      "price": 1499.99,
-      "photo": "https://p1-ofp.static.pub/medias/bWFzdGVyfHJvb3R8MzM3NTg5fGltYWdlL3BuZ3xoM2MvaDExLzE0MTkxNTE3NDAxMTE4LnBuZ3w4OTg2YTg5YzQ0ZmFiZDYzOTdjZTkzNDJjNDY3MTJlODM4YTQ2ODdlMGVmZTFlYjBiODRjYWFmY2JjOTBkODNj/lenovo-laptop-ideapad-3i-15in-hero.png",
-      "description": "Laptop ultrafino com 16GB de RAM, 512GB de SSD e tela 4K.",
-      "qtd": 15,
-      "id": "2"
-    },
-    {
-      "name": "Fone de Ouvido Bluetooth",
-      "price": 99.99,
-      "photo": "https://waaw.com.br/cdn/shop/products/SENSE-300HBNC-01.png?v=1660920638",
-      "description": "Fone de ouvido Bluetooth com cancelamento de ruído, bateria de até 20 horas.",
-      "qtd": 50,
-      "id": "3"
-    },
-    {
-      "name": "Câmera Digital",
-      "price": 599.99,
-      "photo": "https://i1.adis.ws/i/canon/powershot-g7-x-mark-iii-frt_800x800_51bd55c6-758d-11e9-8f40-f8b156c1dc4d_51bd55c0-758d-11e9-a137-f8b156c1dc4d?w=800&h=800",
-      "description": "Câmera digital de 20MP com lente zoom e gravação em 4K.",
-      "qtd": 20,
-      "id": "4"
-    },
-    {
-      "name": "Relógio Inteligente",
-      "price": 199.99,
-      "photo": "https://brmotorolanew.vtexassets.com/arquivos/ids/164895-800-auto?v=638751393885300000&width=800&height=auto&aspect=true",
-      "description": "Relógio inteligente com monitoramento de saúde, notificações e GPS integrado.",
-      "qtd": 40,
-      "id": "5"
-    },
-    {
-      "name": "Teclado Mecânico RGB",
-      "price": 129.99,
-      "photo": "https://cdn.awsli.com.br/2500x2500/1318/1318167/produto/301622057/k653-rgb-2-8825-pt-brown-9knemk9rjh.png",
-      "description": "Teclado mecânico com switches Cherry MX, iluminação RGB e teclas programáveis.",
-      "qtd": 25,
-      "id": "6"
-    },
-    {
-      "name": "Mouse Gamer",
-      "price": 59.99,
-      "photo": "https://img.terabyteshop.com.br/produto/g/mouse-gamer-redragon-sniper-m801-rgb-12400-dpi-9-botoes-programaveis-black_95285.png",
-      "description": "Mouse gamer com sensor de 3200 DPI, botões programáveis e design ergonômico.",
-      "qtd": 100,
-      "id": "7"
-    },
-    {
-      "name": "Smart TV 50",
-      "price": 1099.99,
-      "photo": "https://aocstore.vtexassets.com/arquivos/ids/157894-800-800?v=637992090800000000&width=800&height=800&aspect=true",
-      "description": "Smart TV 4K com tela de 50\", compatível com Netflix e outros serviços de streaming.",
-      "qtd": 10,
-      "id": "8"
-    },
-    {
-      "name": "Headset Gamer",
-      "price": 129.99,
-      "photo": "https://www.logitechstore.com.br/media/catalog/product/cache/105e6f420716e0751863c4b81f527d17/l/o/logitech098.png",
-      "description": "Headset gamer com som surround, microfone com cancelamento de ruído e conforto para longas sessões.",
-      "qtd": 60,
-      "id": "9"
-    },
-    {
-      "name": "Monitor 24",
-      "price": 239.99,
-      "photo": "https://images.samsung.com/is/image/samsung/p6pim/br/lf24t350fhlmzd/gallery/br-t35f-lf24t350fhlmzd-539733621?$684_547_PNG$",
-      "description": "Monitor Full HD de 24\" com taxa de atualização de 75Hz e suporte a montagem VESA.",
-      "qtd": 30,
-      "id": "10"
-    }
-  ]
-  
+  {
+    "nome": "Smartphone XYZ",
+    "preco": 799.99,
+    "foto": "https://images.jdmagicbox.com/quickquotes/images_main/samosm-a166pzdhins-272981100-9e3posdr.png",
+    "descricao": "Smartphone de última geração com câmera de 64MP, tela de 6.5\" e processador octa-core.",
+    "quantidade": 30,
+    "id": "1"
+  },
+  {
+    "nome": "Laptop ABC",
+    "preco": 1499.99,
+    "foto": "https://p1-ofp.static.pub/medias/bWFzdGVyfHJvb3R8MzM3NTg5fGltYWdlL3BuZ3xoM2MvaDExLzE0MTkxNTE3NDAxMTE4LnBuZ3w4OTg2YTg5YzQ0ZmFiZDYzOTdjZTkzNDJjNDY3MTJlODM4YTQ2ODdlMGVmZTFlYjBiODRjYWFmY2JjOTBkODNj/lenovo-laptop-ideapad-3i-15in-hero.png",
+    "descricao": "Laptop ultrafino com 16GB de RAM, 512GB de SSD e tela 4K.",
+    "quantidade": 15,
+    "id": "2"
+  },
+  {
+    "nome": "Fone de Ouvido Bluetooth",
+    "preco": 99.99,
+    "foto": "https://waaw.com.br/cdn/shop/products/SENSE-300HBNC-01.png?v=1660920638",
+    "descricao": "Fone de ouvido Bluetooth com cancelamento de ruído, bateria de até 20 horas.",
+    "quantidade": 50,
+    "id": "3"
+  },
+  {
+    "nome": "Câmera Digital",
+    "preco": 599.99,
+    "foto": "https://i1.adis.ws/i/canon/powershot-g7-x-mark-iii-frt_800x800_51bd55c6-758d-11e9-8f40-f8b156c1dc4d_51bd55c0-758d-11e9-a137-f8b156c1dc4d?w=800&h=800",
+    "descricao": "Câmera digital de 20MP com lente zoom e gravação em 4K.",
+    "quantidade": 20,
+    "id": "4"
+  },
+  {
+    "nome": "Relógio Inteligente",
+    "preco": 199.99,
+    "foto": "https://brmotorolanew.vtexassets.com/arquivos/ids/164895-800-auto?v=638751393885300000&width=800&height=auto&aspect=true",
+    "descricao": "Relógio inteligente com monitoramento de saúde, notificações e GPS integrado.",
+    "quantidade": 40,
+    "id": "5"
+  },
+  {
+    "nome": "Teclado Mecânico RGB",
+    "preco": 129.99,
+    "foto": "https://cdn.awsli.com.br/2500x2500/1318/1318167/produto/301622057/k653-rgb-2-8825-pt-brown-9knemk9rjh.png",
+    "descricao": "Teclado mecânico com switches Cherry MX, iluminação RGB e teclas programáveis.",
+    "quantidade": 25,
+    "id": "6"
+  },
+  {
+    "nome": "Mouse Gamer",
+    "preco": 59.99,
+    "foto": "https://img.terabyteshop.com.br/produto/g/mouse-gamer-redragon-sniper-m801-rgb-12400-dpi-9-botoes-programaveis-black_95285.png",
+    "descricao": "Mouse gamer com sensor de 3200 DPI, botões programáveis e design ergonômico.",
+    "quantidade": 100,
+    "id": "7"
+  },
+  {
+    "nome": "Smart TV 50",
+    "preco": 1099.99,
+    "foto": "https://aocstore.vtexassets.com/arquivos/ids/157894-800-800?v=637992090800000000&width=800&height=800&aspect=true",
+    "descricao": "Smart TV 4K com tela de 50\", compatível com Netflix e outros serviços de streaming.",
+    "quantidade": 10,
+    "id": "8"
+  },
+  {
+    "nome": "Headset Gamer",
+    "preco": 129.99,
+    "foto": "https://www.logitechstore.com.br/media/catalog/product/cache/105e6f420716e0751863c4b81f527d17/l/o/logitech098.png",
+    "descricao": "Headset gamer com som surround, microfone com cancelamento de ruído e conforto para longas sessões.",
+    "quantidade": 60,
+    "id": "9"
+  },
+  {
+    "nome": "Monitor 24",
+    "preco": 239.99,
+    "foto": "https://images.samsung.com/is/image/samsung/p6pim/br/lf24t350fhlmzd/gallery/br-t35f-lf24t350fhlmzd-539733621?$684_547_PNG$",
+    "descricao": "Monitor Full HD de 24\" com taxa de atualização de 75Hz e suporte a montagem VESA.",
+    "quantidade": 30,
+    "id": "10"
+  }
+]
